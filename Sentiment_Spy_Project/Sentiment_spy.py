@@ -13,6 +13,6 @@ def analyze_sentiment(text):
     print(blob.sentiment)
 
 print("Hi I am the sentiment checking chatbot")
-mood=input("How are you?").lower()
+mood=input("How are you??").lower()
 show_processing_animation()
 analyze_sentiment(mood)
