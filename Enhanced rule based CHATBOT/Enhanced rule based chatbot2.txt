@@ -1,0 +1,42 @@
+def weatherinfo():
+    return "WEATHER:Today's weather is 30*C"
+def news():
+    return "NEWS:PSG has won against Liverpool 2-0 in the champions league quarter finals"
+def localtime():
+    print("Hi!,I am an Enhanced Rule based chatbot")
+    from datetime import datetime
+    import pytz
+
+    cities = {
+        "jeddah": "Asia/Riyadh",
+        "london": "Europe/London",
+        "new york": "America/New_York",
+        "tokyo": "Asia/Tokyo",
+        "india": "Asia/Kolkata",
+        "south africa": "Africa/Johannesburg"
+    }
+
+
+    city = input("Enter the city name and i will tell you the current time!: ").lower()
+
+    if city in cities:
+        timezone = pytz.timezone(cities[city])
+        local_time = datetime.now(timezone)
+        print(f"Current time in {city.title()} is: {local_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    else:
+        print("City not found! Try again.")
+
+localtime()
+info=input("Do you want to know the weather info?(Yes/No)").lower()
+news1=input("Do you want to know the news?(Yes/No)").lower()
+if info=="yes" and news1=="no":
+     print(weatherinfo())
+elif news1=="yes" and info=="no":
+    print(news())
+elif info=="yes" and news1=="yes":
+    print(weatherinfo())
+    print(news())
+elif info=="no" and news1=="no":
+     print("No problem.Bye!")
+else:
+    print("Coudn't understand, pls try again.")
